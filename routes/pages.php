@@ -32,3 +32,10 @@ $obRouter->get('/pesquisar', [
         return new Response(200, Pages\Search::getSearch());
     }
 ]);
+
+// Search route
+$obRouter->get('/pesquisar', [
+    function () {
+        return new Response(200, Pages\Search::getSearch());
+    }
+]);
