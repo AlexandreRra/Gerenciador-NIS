@@ -3,7 +3,7 @@
         'name' => 'gerenciado/nis',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '08ec510c7c0ef32cbcef64f4ce48bbea9457dbce',
+        'reference' => 'b5e9a5563d8e82a59a12acb61249ab6773741830',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'gerenciado/nis' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '08ec510c7c0ef32cbcef64f4ce48bbea9457dbce',
+            'reference' => 'b5e9a5563d8e82a59a12acb61249ab6773741830',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

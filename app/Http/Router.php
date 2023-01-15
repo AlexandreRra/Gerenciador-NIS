@@ -194,6 +194,7 @@ class Router
             // GET current route
             $route = $this->getRoute();
 
+
             // Checks controller
             if (!isset($route['controller'])) {
                 throw new Exception("A URL não pode ser processada", 500);
@@ -208,7 +209,7 @@ class Router
                 $name = $parameter->getName();
                 $args[$name] = $route['variables'][$name] ?? '';
             }
-
+            
             // Function execution
             return call_user_func_array($route['controller'], $args);
         } catch (Exception $e) {

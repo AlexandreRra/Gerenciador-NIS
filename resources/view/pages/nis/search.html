@@ -6,21 +6,27 @@
   </section>
   <h2 class="mt-3">Buscar nome pelo número NIS</h2>
 
+  {{status}}
+
   <section id="form">
-    <form method="get">
+    <form method="post">
       <div class="form-group">
         <label>Número do NIS:</label>
-        <input type="text" class="form-control" name="nis" />
+        <input
+          id="nis"
+          type="text"
+          class="form-control"
+          name="nis"
+          maxlength="15"
+          placeholder="000.00000.00-00"
+          required
+        />
+        
       </div>
       <div class="form-group mt-3">
         <button type="submit" class="btn btn-success">Buscar nome</button>
       </div>
     </form>
   </section>
-
-  <section id="cidadao">
-
-    {{cidadao}}
-
-  </section>
+  <section id="cidadao">{{cidadao}}</section>
 </main>

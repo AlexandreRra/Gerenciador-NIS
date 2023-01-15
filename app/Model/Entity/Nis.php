@@ -27,7 +27,7 @@ class Nis
 
     /**
      * Insert a new NIS Entity in DB
-     * @return bool
+     * @return integer
      */
     public function insert()
     {
@@ -41,7 +41,7 @@ class Nis
         ]);
 
         // Success
-        return true;
+        return $this->nis;;
 
     }
 
@@ -54,8 +54,17 @@ class Nis
      * @return PDOStatement
      */
     public static function get($where = null, $order = null, $limit = null, $fields = '*') {
-
         return (new Database('nis'))->select($where,$order,$limit,$fields);
+    }
+
+    /**
+     * Returns NIS by number from DB
+     * @param integer $nis
+     * @return Nis
+     */
+    public static function getNisByNumber($nis) {
+
+        return (new Database('nis'))->select('nis = '.$nis, '', '', '*')->fetchObject(self::class);
 
     }
 }

@@ -33,9 +33,9 @@ $obRouter->get('/pesquisar', [
     }
 ]);
 
-// Search route
-$obRouter->get('/pesquisar', [
-    function () {
-        return new Response(200, Pages\Search::getSearch());
+// Search route (SELECT)
+$obRouter->post('/pesquisar', [
+    function ($request) {
+        return new Response(200, Pages\Search::getNisByNumber($request));
     }
 ]);

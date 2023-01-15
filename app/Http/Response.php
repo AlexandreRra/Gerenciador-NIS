@@ -69,6 +69,7 @@ class Response
         // Status
         http_response_code($this->httpCode);
 
+
         // Send headers
         foreach ($this->headers as $key => $value) {
             header($key . ': ' . $value);
@@ -80,11 +81,15 @@ class Response
      */
     public function sendResponse()
     {
+
         // Send headers
         $this->sendHeaders();
 
+
+
         // Print content
         switch ($this->contentType) {
+
             case 'text/html':
                 echo $this->content;
                 exit;

@@ -45,6 +45,19 @@ class Request
         $this->headers = getallheaders();
         $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
         $this->uri = $_SERVER['REQUEST_URI'] ?? '';
+        $this->setUri();
+    }
+
+    /**
+     * Defines the URI
+     */
+    private function setUri(){
+        // Complete URI (with GETS)
+        $this->uri = $_SERVER['REQUEST_URI'] ?? '';
+
+        // Remove GETS from URI
+        $xURI = explode('?',$this->uri);
+        $this->uri = $xURI[0];
     }
 
     /**
