@@ -2,8 +2,8 @@
 
 namespace App\Controller\Pages;
 
+use App\Model\Entity\Nis;
 use \App\Utils\View;
-use \App\Model\Entity\Cadastro;
 
 class Search extends Page
 {
@@ -13,16 +13,34 @@ class Search extends Page
      */
     public static function getSearch()
     {
-
-        $cadastro = new Cadastro;
-
         // Search view
-        $content = View::render('pages/search', [
-            'name' => 'NIS',
-            'description' => 'Número de Identificação Social',
+        $content = View::render('pages/nis/search', [
+            'cidadao' => self::getNisByNumber()
         ]);
 
         // Returns Page view
-        return parent::getPage('NIS', $content);
+        return parent::getPage('Pesquisa', $content);
+    }
+
+    /**
+     * Get cidadao from DB
+     * @return string
+     */
+    private static function getNisByNumber() {
+
+        // Search by number
+        $cidadao = Nis::get('nis = 1', '','','*');
+
+        $obNis = $cidadao->fetchObject(Nis::class);
+
+        // Render item(cidadao)
+        $content = View::render('pages/nis/item', [
+            'nome' => $obNis->nome,
+            'nis' => $obNis->nis,
+            'data_criacao' => date('d/m/Y H:i:s',strtotime($obNis->data_criacao))
+        ]);
+
+        return $content;
+
     }
 }

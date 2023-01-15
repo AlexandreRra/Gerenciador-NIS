@@ -2,6 +2,7 @@
 
 
 use \App\Http\Response;
+use \App\Http\Request;
 use \App\Controller\Pages;
 
 // Home route
@@ -18,16 +19,16 @@ $obRouter->get('/registrar', [
     }
 ]);
 
+// Register route (INSERT)
+$obRouter->post('/registrar', [
+    function ($request) {
+        return new Response(200, Pages\Register::insertNis($request));
+    }
+]);
+
 // Search route
 $obRouter->get('/pesquisar', [
     function () {
         return new Response(200, Pages\Search::getSearch());
-    }
-]);
-
-// Search by id route
-$obRouter->get('/pesquisar/{id}/{acao}', [
-    function ($id, $acao) {
-        return new Response(200, 'Página '.$id.' - '.$acao);
     }
 ]);

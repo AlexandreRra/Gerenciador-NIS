@@ -3,7 +3,6 @@
 namespace App\Controller\Pages;
 
 use \App\Utils\View;
-use \App\Model\Entity\Cadastro;
 
 class Home extends Page
 {
@@ -13,8 +12,6 @@ class Home extends Page
      */
     public static function getHome()
     {
-
-        $cadastro = new Cadastro;
 
         // Home view
         $content = View::render('pages/home', [

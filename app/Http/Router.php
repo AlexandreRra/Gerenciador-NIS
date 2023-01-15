@@ -169,7 +169,7 @@ class Router
                     // Processed variables
                     $keys = $methods[$httpMethod]['variables'];
                     $methods[$httpMethod]['variables'] = array_combine($keys, $matches);
-                    $mathods[$httpMethod]['variables']['request'] = $this->request;
+                    $methods[$httpMethod]['variables']['request'] = $this->request;
 
                     // Return the route params
                     return $methods[$httpMethod];

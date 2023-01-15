@@ -1,17 +1,10 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'/includes/app.php';
 
 use \App\Http\Router;
-use App\Utils\View;
 
-define('URL','http://localhost:8000');
-
-// Set default value for variables
-View::init([
-    'URL' => URL
-]);
-
+// Initialize Router
 $obRouter = new Router(URL);
 
 // Include the pages routes
