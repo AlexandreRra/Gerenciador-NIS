@@ -53,6 +53,15 @@ https://getcomposer.org/download/
 1. Dowload composer-setup.exe
 2. Install
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Project:
+
+First of all you need to set de Environment Variables. For safety measures, the ".env.dev" is not used, its only a mirror so you can change with your infos.
+After setting them, change the ".env.dev" to ".env"
+
+Use 'php -s localhost:8000' to open. You can change in the .env file
+
 Any questions, send me an email: alexandrerra08@gmail.com
 
 
