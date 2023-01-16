@@ -35,7 +35,7 @@ https://dev.mysql.com/downloads/windows/installer/8.0.html
 7. Open your 'php.ini'
 8. Uncomment "extension_dir = 'ext'"
 9. Uncomment "extension = pdo_mysql"
-10. Create table
+10. Create table in MYSQL Workbench
 
 CREATE TABLE `nis` (
   `nis` int NOT NULL AUTO_INCREMENT,
