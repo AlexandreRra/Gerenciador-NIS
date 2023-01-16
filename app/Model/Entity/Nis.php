@@ -67,4 +67,36 @@ class Nis
         return (new Database('nis'))->select('nis = '.$nis, '', '', '*')->fetchObject(self::class);
 
     }
+
+    /**
+     * Format nis from integer to XXX.XXXXX.XX-XX
+     * @param integer $nis
+     * @return string
+     */
+    public static function formatNis($nis) {
+
+        // Formating NIS
+        $array = str_split($nis);
+        $numDigits = strlen($nis);
+        $numDigitsRemaings = 11 - $numDigits;
+        $returnNis = '';
+        $formatedArray = [];
+
+        while($numDigitsRemaings >= 0) {
+            array_push($formatedArray,"0");
+            $numDigitsRemaings--;
+        }
+
+        $point = array('.');
+        $dash = array('-');
+
+        array_splice($formatedArray,-1,11,$array);
+        array_splice($formatedArray,3,0,$point);
+        array_splice($formatedArray,9,0,$point);
+        array_splice($formatedArray,12,0,$dash);
+
+        $returnNis = implode("",$formatedArray);
+
+        return $returnNis;
+    }
 }

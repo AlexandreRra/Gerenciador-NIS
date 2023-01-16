@@ -37,7 +37,12 @@ class Search extends Page
     {
         // POST data
         $postVars = $request->getPostVars();
-        $nis = $postVars['nis'] ?? '';
+        $stringNis = $postVars['nis'] ?? '';
+
+        $stringNis = str_replace('.','',$stringNis);
+        $stringNis = str_replace('-','',$stringNis);
+
+        $nis = intval( $stringNis );
 
         // Search NIS by number
         $obNis = Nis::getNisByNumber($nis);
@@ -49,7 +54,7 @@ class Search extends Page
         // Render item(cidadao)
         $itemContent = View::render('pages/nis/item', [
             'nome' => $obNis->nome,
-            'nis' => $obNis->nis,
+            'nis' => $obNis->formatNis($obNis->nis),
             'data_criacao' => date('d/m/Y H:i:s', strtotime($obNis->data_criacao))
         ]);
 

@@ -43,6 +43,8 @@ class Register extends Page
         $obNis->nome = $postVars['nome'];
         $newNis = $obNis->insert();
 
-        return self::getRegister('NIS Cadastrado com sucesso -- Número: '.$newNis);
+        $returnNis = $obNis->formatNis($newNis);
+
+        return self::getRegister('NIS Cadastrado com sucesso -- Número: '.$returnNis);
     }
 }
